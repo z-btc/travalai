@@ -81,12 +81,6 @@ export function PurposeSelector(props: { onRunExample: (example: string) => void
       setSystemPurposeId(purpose);
   };
 
-  const handleCustomSystemMessageChange = (v: React.ChangeEvent<HTMLTextAreaElement>): void => {
-    // TODO: persist this change? Right now it's reset every time.
-    //       maybe we shall have a "save" button just save on a state to persist between sessions
-    SystemPurposes['Custom'].systemMessage = v.target.value;
-  };
-
   // we show them all if the filter is clear (null)
   const purposeIDs = (filteredIDs && showPurposeFinder) ? filteredIDs : Object.keys(SystemPurposes);
 
@@ -165,18 +159,6 @@ export function PurposeSelector(props: { onRunExample: (example: string) => void
               </> : selectedPurpose.description
             )}
         </Typography>
-
-        {systemPurposeId === 'Custom' && (
-          <Textarea
-            variant='outlined' autoFocus placeholder={'Craft your custom system message here…'}
-            minRows={3}
-            defaultValue={SystemPurposes['Custom']?.systemMessage} onChange={handleCustomSystemMessageChange}
-            sx={{
-              background: theme.vars.palette.background.level1,
-              lineHeight: 1.75,
-              mt: 1,
-            }} />
-        )}
 
       </Box>
 
