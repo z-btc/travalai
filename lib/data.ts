@@ -1,4 +1,4 @@
-export type SystemPurposeId = 'Catalyst' | 'Custom' | 'Developer' | 'Executive' | 'Generic' | 'Scientist';
+export type SystemPurposeId = 'Developer';
 
 export const defaultSystemPurposeId: SystemPurposeId = 'Generic';
 
